@@ -20,7 +20,7 @@ explore: customer_config {
     dimensions: [current_config_state.current_customer_name, switch_to]
     label: "Customer Switcher"
     description: "Shows the current customer and allows you to switch to others"
-    sorts: [current_config_state.current_customer_name: asc]
+    sorts: [customer_config.switch_to: asc]
   }
 
   join: current_config_state {

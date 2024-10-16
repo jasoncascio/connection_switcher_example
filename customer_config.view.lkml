@@ -63,9 +63,18 @@ view: customer_config {
 
   dimension: switch_to {
     type: string
-    sql: 1 ;;
+    sql:
+      CASE
+        WHEN ${current_config_state.current_customer_name} = ${customer_name} THEN 'AAA ' || ${customer_name}
+        ELSE ${customer_name}
+      END
+    ;;
     html:
-      <span>Switch to {{ customer_config.customer_name._rendered_value }} ({{ customer_config.database_wh._rendered_value }}/{{ customer_config.database_name._rendered_value }})</span>
+      {% if customer_config.customer_name._value == current_config_state.current_customer_name._value %}
+          <span style="font-weight: bold; color: red">--> {{ customer_config.customer_name._rendered_value }} ({{ customer_config.database_wh._rendered_value }}/{{ customer_config.database_name._rendered_value }})</span>
+      {% else %}
+          <span>Switch to {{ customer_config.customer_name._rendered_value }} ({{ customer_config.database_wh._rendered_value }}/{{ customer_config.database_name._rendered_value }})</span>
+      {% endif %}
     ;;
     action: {
       label: "Switch to {{ customer_config.customer_name._rendered_value }} ({{ customer_config.database_wh._rendered_value }}/{{ customer_config.database_name._rendered_value }}"
@@ -74,11 +83,11 @@ view: customer_config {
       # icon_url: "https://looker.com/favicon.ico"
       param: {
         name: "switcher_database_wh" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
-        value: "{{ customer_config.database_wh._rendered_value }}"
+        value: "{{ customer_config.database_wh._value }}"
       }
       param: {
         name: "switcher_database_name" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
-        value: "{{ customer_config.database_name._rendered_value }}"
+        value: "{{ customer_config.database_name._value }}"
       }
       user_attribute_param: {
         user_attribute: customer_switcher_authentication_secret
