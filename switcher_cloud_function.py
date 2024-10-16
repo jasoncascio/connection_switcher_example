@@ -34,7 +34,7 @@ sdk = looker_sdk.init40()
 
 
 ## Mapping
-mapping_config = { # contains mappings between references in this script and Looker user attributes
+mapping_config = { # contains mappings between references in this script and properties Looker sends through data action
     "DB_NAME_FIELD": "switcher_database_name",
     "DB_WH_FIELD": "switcher_database_wh",
     "SECRET_FIELD": "customer_switcher_authentication_secret",
