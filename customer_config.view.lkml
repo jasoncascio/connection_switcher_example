@@ -40,7 +40,7 @@ view: customer_config {
         SELECT NULL AS customer_name, NULL AS database_wh, NULL AS database_name
         UNION ALL SELECT 'Customer 1', 'db_wh_1', 'transactions'
         UNION ALL SELECT 'Customer 2', 'db_wh_2', 'transactions'
-        UNION ALL SELECT 'Customer 2', 'db_wh_3', 'transactions'
+        UNION ALL SELECT 'Customer 3', 'db_wh_3', 'transactions'
       )
       SELECT * FROM config WHERE customer_name IS NOT NULL
     ;;
