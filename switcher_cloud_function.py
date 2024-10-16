@@ -2,6 +2,7 @@
 ## Paste this into the code definition
 ## Be sure to set environment variables in cloud function definition:
 ## LOOKERSDK_BASE_URL, LOOKERSDK_CLIENT_ID, LOOKERSDK_CLIENT_SECRET, AUTHENTICATION_SECRET 
+## Also be sure to add requirements.txt to the cloud function
 
 
 import functions_framework
