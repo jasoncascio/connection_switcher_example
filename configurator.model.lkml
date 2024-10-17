@@ -8,6 +8,7 @@ access_grant: can_switch_customer {
 }
 
 
+
 explore: customer_config {
   required_access_grants: [can_switch_customer]
 
@@ -17,7 +18,13 @@ explore: customer_config {
   # }
 
   query: switcher {
-    dimensions: [current_config_state.current_customer_name, switch_to]
+    dimensions: [
+      current_config_state.who_am_i,
+      current_config_state.current_customer_name,
+      current_config_state.current_database_wh,
+      current_config_state.current_database_name,
+      switch_to
+    ]
     label: "Customer Switcher"
     description: "Shows the current customer and allows you to switch to others"
     sorts: [customer_config.switch_to: asc]
