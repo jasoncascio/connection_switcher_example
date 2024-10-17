@@ -82,20 +82,20 @@ view: customer_config {
       # form_url: "https://example.com/ping/{{ value }}/form.json"
       # icon_url: "https://looker.com/favicon.ico"
       param: {
-        name: "switcher_database_wh" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
+        name: "switcher_database_wh" # must match expected field name in cloud function
         value: "{{ customer_config.database_wh._value }}"
       }
       param: {
-        name: "switcher_database_name" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
+        name: "switcher_database_name" # must match expected field name in cloud function
         value: "{{ customer_config.database_name._value }}"
       }
       user_attribute_param: {
         user_attribute: customer_switcher_authentication_secret
-        name: "customer_switcher_authentication_secret" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
+        name: "customer_switcher_authentication_secret" # must match expected field name in cloud function
       }
       user_attribute_param: {
         user_attribute: id
-        name: "user_id" # best if this matches the name of the associated user attribute (otherwise mapping will be required in cloud function)
+        name: "user_id" # must match expected field name in cloud function
       }
     }
   }
