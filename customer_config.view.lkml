@@ -89,7 +89,7 @@ view: customer_config {
         name: "switcher_database_name" # must match expected field name in cloud function
         value: "{{ customer_config.database_name._value }}"
       }
-      user_attribute_param: {
+      user_attribute_param: { # be sure to set this attribute's value to be hidden and add domain allowlist
         user_attribute: customer_switcher_authentication_secret
         name: "customer_switcher_authentication_secret" # must match expected field name in cloud function
       }

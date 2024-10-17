@@ -5,12 +5,16 @@ include: "*.view.lkml"                # include all views in the views/ folder i
 access_grant: can_switch_customer {
   user_attribute: can_switch_customer
   allowed_values: ["Yes"]
+   # create a group for users who can switch, add users, give attribute value "Yes"
+  # for corresponding group
 }
 
 
 
+
+
 explore: customer_config {
-  required_access_grants: [can_switch_customer]
+  required_access_grants: [can_switch_customer] #limits who can see this explore
 
   # access_filter: { could add access filters as necessary to limit customer exposure
   #   user_attribute: allowed_customers
