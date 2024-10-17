@@ -79,8 +79,6 @@ view: customer_config {
     action: {
       label: "Switch to {{ customer_config.customer_name._rendered_value }} ({{ customer_config.database_wh._rendered_value }}/{{ customer_config.database_name._rendered_value }}"
       url: "https://us-central1-jc-looker.cloudfunctions.net/looker-customer-switcher"
-      # form_url: "https://example.com/ping/{{ value }}/form.json"
-      # icon_url: "https://looker.com/favicon.ico"
       param: {
         name: "switcher_database_wh" # must match expected field name in cloud function
         value: "{{ customer_config.database_wh._value }}"
@@ -101,29 +99,3 @@ view: customer_config {
   }
 
 }
-
-
-# label: "Label to Appear in Action Menu"
-# url: "https://example.com/posts"
-# icon_url: "https://looker.com/favicon.ico"
-# form_url: "https://example.com/ping/{{ value }}/form.json"
-# param: {
-#   name: "name string"
-#   value: "value string"
-# }
-# form_param: {
-#   name:  "name string"
-#   type: textarea | string | select
-#   label:  "possibly-localized-string"
-#   option: {
-#     name:  "name string"
-#     label:  "possibly-localized-string"
-#   }
-#   required:  yes | no
-#   description:  "possibly-localized-string"
-#   default:  "string"
-# }
-# user_attribute_param: {
-#   user_attribute: user_attribute_name
-#   name: "name_for_json_payload"
-# }
